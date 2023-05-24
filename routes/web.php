@@ -31,11 +31,17 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home',[homeController::class, 'index']);
     Route::get('/home/petani',[homeController::class, 'petani'])->middleware('userAccess:petani');
     Route::get('/home/petani/home',[petaniController::class, 'index'])->middleware('userAccess:petani')->name('petani.home');
+    
     Route::get('/home/petani/penyakit',[petaniController::class, 'get_data_penyakit'])->middleware('userAccess:petani')->name('petani.penyakit');
     Route::get('/home/petani/penyakit/{id}',[petaniController::class, 'show_data_penyakit'])->middleware('userAccess:petani')->name('petani.penyakitDetail');
+    
+    Route::get('/home/petani/formulasi',[petaniController::class, 'get_data_formulasi'])->middleware('userAccess:petani')->name('petani.formulasi');
+    Route::get('/home/petani/formulasi/{id}',[petaniController::class, 'show_data_formulasi'])->middleware('userAccess:petani')->name('petani.formulasiDetail');
+    
     Route::get('/home/petani/budidaya',[petaniController::class, 'budidaya'])->middleware('userAccess:petani')->name('petani.budidaya');
-    Route::get('/home/petani/kalkulasi',[petaniController::class, 'kalkulasi'])->middleware('userAccess:petani')->name('petani.kalkulasi');
-    Route::get('/home/petani/formulasi',[petaniController::class, 'formulasi'])->middleware('userAccess:petani')->name('petani.formulasi');
+    Route::get('/home/petani/kalkulasi',[petaniController::class, 'kalkulator'])->middleware('userAccess:petani')->name('petani.kalkulasi');
+    Route::post('/home/petani/kalkulasi',[petaniController::class, 'kalkulator'])->middleware('userAccess:petani')->name('petani.kalkulasi');
+    Route::post('/home/petani/kalkulasi/hitung',[petaniController::class, 'hitung'])->middleware('userAccess:petani')->name('petani.kalkulasi.hitung');
     Route::get('/home/petani/cuaca',[petaniController::class, 'cuaca'])->name('petani.cuaca');
     Route::get('/home/pengelola',[homeController::class, 'pengelola'])->middleware('userAccess:pengelola');
     Route::get('/home/pengguna',[homeController::class, 'pengguna'])->middleware('userAccess:pengguna');

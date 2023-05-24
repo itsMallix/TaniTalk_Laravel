@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formulasi;
+use App\Models\Kalkulator;
 use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
@@ -25,13 +27,30 @@ class petaniController extends Controller
     {
         return view('petani.budidaya');
     }
-    function kalkulasi()
+    function kalkulator()
     {
         return view('petani.kalkulasi');
     }
-    function formulasi()
+    public function hitung(Request $request)
     {
-        return view('petani.formulasi');
+        $luasLahan = $request->input('luaslahan');
+        $pola = $request->input('pola');
+        $jarakTanam1 = $request->input('jarakTanam1');
+        $jarakTanam2 = $request->input('jarakTanam2');
+
+        $hasil = Kalkulator::hitungDosisPupuk($luasLahan, $pola, $jarakTanam1, $jarakTanam2);
+
+        return view('kalkulator.index', ['hasil' => $hasil]);
+    }
+    function get_data_formulasi()
+    {
+        $dataFormulasi = Formulasi::all();
+        return view('petani.formulasi', compact('dataFormulasi'));
+    }
+    function show_data_formulasi($id)
+    {
+        $dataFormulasi_ = Formulasi::findOrFial($id);
+        return view('petani.formulasiDetail', compact('dataFormulasi_'));
     }
     function cuaca()
     {

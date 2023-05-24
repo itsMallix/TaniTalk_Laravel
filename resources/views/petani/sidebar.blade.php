@@ -8,7 +8,7 @@
         <li class="nav"><a href="{{ route('petani.penyakit') }}"><i class="fa-solid fa-bug"></i>Katalog Penyakit</a></li>
         <li class="nav"><a href="{{ route('petani.budidaya') }}"><i class="fa-solid fa-lemon"></i>Katalog Budidaya</a></li>
         <li class="nav"><a href="{{ route('petani.kalkulasi') }}"><i class="fa-solid fa-calculator"></i>Kalkulasi pupuk</a></li>
-        <li class="nav"><a href="#"><i class="fa-solid fa-seedling"></i>Formulasi pupuk</a></li>
+        <li class="nav"><a href="{{ route('petani.formulasi') }}"><i class="fa-solid fa-seedling"></i>Formulasi pupuk</a></li>
         <li class="nav"><a href="#"><i class="fa-solid fa-book"></i>Pencatatan</a></li>
         <li class="nav"><a href="{{ route('petani.cuaca') }}"><i class="fa-solid fa-cloud"></i>Cuaca</a></li>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
