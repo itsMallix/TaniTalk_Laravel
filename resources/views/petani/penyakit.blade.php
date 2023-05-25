@@ -16,7 +16,7 @@
             <div class="cardCol">
                 <div class="card">
                     <h2>{{ $row->nama_penyakit }}</h2>
-                    <img src="" alt="" class="thumbnail">
+                    <img src="{{ route('image.display'), ['id' => $row->gambar] }}" alt="" class="thumbnail">
                     <a href="{{ route('petani.penyakitDetail', $row->id)}}">
                         <button class="detailBtn">Detail</button>
                     </a>

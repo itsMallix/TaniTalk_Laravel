@@ -21,8 +21,7 @@ class homeController extends Controller
     function pengelola()
     {
         // return view('petani.home');
-        echo 'haloo pengelola';
-        echo "<a href='logout'>logout</a>";
+        return view('pengelola.home');
     }
     function pengguna()
     {

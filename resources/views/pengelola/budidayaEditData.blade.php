@@ -21,26 +21,33 @@
        </div>
 
        @endif
-       <form action='{{ url('home/pengelola/budidaya/tambah') }}' method='post'>
+       <form action='{{ url('home/pengelola/budidaya/tambah/'.$data->id) }}' method='post'>
         @csrf
+        @method('PUT')
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-          <a href='{{ url('home/pengelola/budidaya/tambah') }}' class="btn btn-secondary"><< kembali</a>
+            <a href='{{ url('home/pengelola/budidaya/tambah') }}' class="btn btn-secondary"><< kembali</a>
             <div class="mb-3 row">
                 <label for="nama_budidaya" class="col-sm-2 col-form-label">Nama Budidaya</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='nama_budidaya' id="nama_budidaya" value="{{ Session::get ('nama_budidaya') }}">
+                    <input type="text" class="form-control" name='nama_budidaya' id="nama_budidaya" value="{{ $data->nama_budidaya }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="jenis_budidaya" class="col-sm-2 col-form-label">jenis Budidaya</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='jenis_budidaya' id="jenis_budidaya" value="{{ Session::get ('jenis_budidaya') }}">
+                    <input type="text" class="form-control" name='jenis_budidaya' id="jenis_budidaya" value="{{ $data->jenis_budidaya }}">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='deskripsi' id="deskripsi" value="{{ Session::get ('deskripsi') }}">
+                    <input type="text" class="form-control" name='deskripsi' id="deskripsi" value="{{ $data->deskripsi }}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='gambar' id="gambar" value="{{ $data->gambar }}">
                 </div>
             </div>
             <div class="mb-3 row">
